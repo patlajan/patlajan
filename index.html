@@ -1,8 +1,29 @@
 <html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<script src='words-dict.js'></script>
+</head>
 <body>
-	<script src='words-dict.js'></src>
+
+	<label>Word of the day: <input type="text" id="word-of-the-day"></label>
+	<br />
+	<br />
+	<label>Guesses: <input type="text" id="guesses"></label>
+	<br />
+	<br />
+	<p id="result"></p>
+	
 	<script type='text/javascript'>
-		
+
+		$('#guesses').on('input', function(e) {
+			let wordOfTheDay = $('#word-of-the-day').val().trim();
+			let guessList = e.target.value.trim().replace(',', ' ').replace('  ', ' ').split(' ');
+		  	let res = filterDownWordsByGuesses(dict, wordOfTheDay,  guessList);
+		  	$('#result').text(res.concat(', '));
+		  });
+
+
 		function randomWord(words) {
 			return words[Math.floor(Math.random() * words.length)];
 		}
@@ -31,8 +52,8 @@
 			return res;
 
 		}
-    
-    
+
+
 		function filterDownWordsByGuesses(words, word, guesses) {
 
 			let res = words;
@@ -91,7 +112,7 @@
 			console.log("asdasdasd: " + res);
 		}
 
-		//testWords('until', 'soare');
+		// testWords('until', 'soare');
 
 		function findWordsWithSameLetters(word) {
 
