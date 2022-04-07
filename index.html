@@ -38,21 +38,11 @@
 
 			let res = words;
       
-      for(let g in guesses) {
-        let guess = guesses[g];
-
-        for(let i = 0; i < word.length; i++) {
-          if(word[i] == guess[i]) 
-            res = res.filter(w => w[i] == guess[i]);
-          else if(word.indexOf(guess[i]) > -1) 
-            res = res.filter(w => w.indexOf(guess[i]) > -1 && w.indexOf(guess[i]) != i);
-          else 
-            res = res.filter(w => w.indexOf(guess[i]) == -1 );
-        }
-      }
-      
+			for(let g in guesses) {
+				res = filterDownWords(res, word, guesses[g]);
+			}
+			
 			return res;
-
 		}
 
 		function solve(word, try1, try2) {
