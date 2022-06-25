@@ -21,7 +21,7 @@
 			let guessList = e.target.value.trim().replace(',', ' ').replace('  ', ' ').split(' ');
 		  	let res = filterDownWordsByGuesses(dict, wordOfTheDay,  guessList);
 		  	let res2 = filterDownWordsByGuesses(dict2, wordOfTheDay,  guessList);
-		  	$('#result').text('(' + res.length + ') [' + res.join(', ') + ']\n(' + res.length + ') [' + res.join(', ') + ']');
+		  	$('#result').text('Valid solutions: (' + res.length + ') [' + res.join(', ') + ']\nValid guesses: (' + res2.length + ') [' + res2.join(', ') + ']');
 		  });
 
 
