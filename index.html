@@ -20,7 +20,8 @@
 			let wordOfTheDay = $('#word-of-the-day').val().trim();
 			let guessList = e.target.value.trim().replace(',', ' ').replace('  ', ' ').split(' ');
 		  	let res = filterDownWordsByGuesses(dict, wordOfTheDay,  guessList);
-		  	$('#result').text('(' + res.length + ') [' + res.join(', ') + ']');
+		  	let res2 = filterDownWordsByGuesses(dict2, wordOfTheDay,  guessList);
+		  	$('#result').text('(' + res.length + ') [' + res.join(', ') + ']\n(' + res.length + ') [' + res.join(', ') + ']');
 		  });
 
 
