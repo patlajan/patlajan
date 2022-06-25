@@ -13,6 +13,8 @@
 	<br />
 	<br />
 	<p id="result"></p>
+	<br />
+	<p id="result2"></p>
 	
 	<script type='text/javascript'>
 
@@ -21,7 +23,8 @@
 			let guessList = e.target.value.trim().replace(',', ' ').replace('  ', ' ').split(' ');
 		  	let res = filterDownWordsByGuesses(dict, wordOfTheDay,  guessList);
 		  	let res2 = filterDownWordsByGuesses(dict2, wordOfTheDay,  guessList);
-		  	$('#result').text('Valid solutions: (' + res.length + ') [' + res.join(', ') + ']\nValid guesses: (' + res2.length + ') [' + res2.join(', ') + ']');
+		  	$('#result').text('Valid solutions: (' + res.length + ') [' + res.join(', ') + ']')
+			$('#result2').text('Valid guesses: (' + res2.length + ') [' + res2.join(', ') + ']');
 		  });
 
 
